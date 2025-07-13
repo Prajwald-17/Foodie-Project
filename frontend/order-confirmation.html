@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed - Foodie</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+
+  <link rel="stylesheet" href="./style.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    .confirmation-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      padding: 20px;
+      padding-top: 120px;
+      text-align: center;
+      position: relative;
+      z-index: 1; 
+    }
+
+    .confirmation-icon {
+      width: 120px;
+      height: 120px;
+      background-color: var(--deep-saffron);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      position: relative;
+      animation: scaleIn 0.5s ease-out forwards;
+      z-index: 2; 
+    }
+
+    .confirmation-icon svg {
+      width: 60px;
+      height: 60px;
+      fill: white;
+    }
+
+    .checkmark {
+      stroke-dasharray: 180;
+      stroke-dashoffset: 180;
+      stroke: white;
+      transform: translateY(0);
+      animation: draw 1s ease-in-out 0.5s forwards;
+    }
+
+    .confirmation-title {
+      font-size: 3.2rem;
+      color: var(--deep-saffron);
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out 0.7s forwards;
+    }
+
+    .confirmation-text {
+      font-size: 1.8rem;
+      color: var(--sonic-silver);
+      max-width: 600px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out 0.9s forwards;
+    }
+
+    .order-details {
+      background-color: var(--cultured);
+      padding: 25px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out 1.1s forwards;
+    }
+
+    .order-details h3 {
+      color: var(--rich-black-fogra-29);
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    .detail-label {
+      color: var(--sonic-silver);
+    }
+
+    .detail-value {
+      color: var(--rich-black-fogra-29);
+      font-weight: 500;
+    }
+    
+    
+    .order-items-section {
+      margin-top: 20px;
+      border-top: 1px dashed var(--sonic-silver);
+      padding-top: 15px;
+    }
+    
+    .order-items-section h4 {
+      color: var(--rich-black-fogra-29);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--cultured);
+    }
+    
+    .order-item-name {
+      flex: 2;
+      text-align: left;
+      color: var(--rich-black-fogra-29);
+    }
+    
+    .order-item-quantity {
+      flex: 1;
+      text-align: center;
+      color: var(--sonic-silver);
+    }
+    
+    .order-item-price {
+      flex: 1;
+      text-align: right;
+      color: var(--rich-black-fogra-29);
+      font-weight: 500;
+    }
+    
+    .order-totals {
+      margin-top: 15px;
+      border-top: 1px dashed var(--sonic-silver);
+      padding-top: 15px;
+    }
+    
+    .order-totals .detail-item {
+      margin-bottom: 5px;
+    }
+    
+    .order-totals .total {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 10px;
+      border-top: 1px solid var(--sonic-silver);
+      padding-top: 10px;
+    }
+    
+    .order-totals .total .detail-value {
+      color: var(--deep-saffron);
+    }
+    
+    .no-items-message {
+      color: var(--sonic-silver);
+      font-style: italic;
+      padding: 10px 0;
+    }
+    
+    
+    .booking-item {
+      background-color: #f8f4e9;
+      border-left: 4px solid var(--deep-saffron);
+      padding: 12px 8px !important;
+    }
+    
+    .booking-details {
+      background-color: #f8f4e9;
+      padding: 0 8px 12px;
+      margin-top: -8px;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      border-left: 4px solid var(--deep-saffron);
+    }
+    
+    .booking-details p {
+      margin: 5px 0;
+      color: var(--sonic-silver);
+    }
+    
+    
+    .booking-item .order-item-price span {
+      background-color: #4CAF50;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .back-home-btn {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out 1.3s forwards;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
+      min-width: 200px;
+      padding: 12px 25px;
+      font-size: 1.6rem;
+      border-radius: 5px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .back-home-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      background-color: var(--tangerine);
+    }
+
+    
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0);
+      }
+      70% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    
+    .food-animation {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .food-item {
+      position: absolute;
+      opacity: 0;
+      animation: floatFood 15s linear infinite;
+    }
+
+    .food-item:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .food-item:nth-child(2) {
+      top: 20%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+
+    .food-item:nth-child(3) {
+      bottom: 15%;
+      left: 15%;
+      animation-delay: 6s;
+    }
+
+    .food-item:nth-child(4) {
+      bottom: 25%;
+      right: 15%;
+      animation-delay: 9s;
+    }
+
+    .food-item:nth-child(5) {
+      top: 50%;
+      left: 5%;
+      animation-delay: 12s;
+    }
+
+    .food-item img {
+      width: 60px;
+      height: 60px;
+      transform: rotate(0deg);
+      animation: rotateFood 10s linear infinite;
+      filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    }
+
+    @keyframes floatFood {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes rotateFood {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        transform: rotate(180deg) scale(1.2);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+    
+    
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+      animation: confettiFall 5s ease-in-out forwards;
+    }
+    
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(calc(100vh + 100px)) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    
+    @media (max-width: 768px) {
+      .confirmation-title {
+        font-size: 2.8rem;
+      }
+      
+      .confirmation-text {
+        font-size: 1.6rem;
+      }
+      
+      .order-details {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header active" data-header>
+    <div class="container">
+      <h1>
+        <a href="index.html" class="logo">Foodie<span class="span">.</span></a>
+      </h1>
+      
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li class="nav-item">
+            <a href="index.html#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#about" class="navbar-link" data-nav-link>About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#food-menu" class="navbar-link" data-nav-link>Shop</a>
+          </li>
+
+
+
+          <li class="nav-item">
+            <a href="index.html#" class="navbar-link" data-nav-link>Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="margin-top: 0; padding-top: 0; position: relative; z-index: 1;">
+  
+    <section class="confirmation-container">
+  
+      <div class="food-animation">
+        <div class="food-item">
+        <img src="./assets/images/food-menu-1.png" alt="Food">
+        </div>
+        <div class="food-item">
+          <img src="./assets/images/food-menu-2.png" alt="Food">
+        </div>
+        <div class="food-item">
+          <img src="./assets/images/food-menu-3.png" alt="Food">
+        </div>
+        <div class="food-item">
+          <img src="./assets/images/food-menu-4.png" alt="Food">
+        </div>
+        <div class="food-item">
+          <img src="./assets/images/food-menu-5.png" alt="Food">
+        </div>
+      </div>
+      
+  
+      <div class="confetti-container" id="confetti-container"></div>
+
+      <div class="confirmation-icon">
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+      </div>
+
+      <h2 class="confirmation-title">Order Confirmed!</h2>
+      
+      <p class="confirmation-text">
+        Thank you for your order. Your delicious food will be on its way soon!
+      </p>
+
+      <div class="order-details">
+        <h3>Order Summary</h3>
+        <div class="detail-item">
+          <span class="detail-label">Order Number:</span>
+          <span class="detail-value" id="order-number">FD-12345</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Date:</span>
+          <span class="detail-value" id="order-date">May 15, 2023</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Estimated Delivery:</span>
+          <span class="detail-value" id="delivery-time">30-45 minutes</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Payment Method:</span>
+          <span class="detail-value">Cash on Delivery</span>
+        </div>
+        
+  
+        <div class="order-items-section">
+          <h4>Items Ordered</h4>
+          <div id="order-items-list">
+  
+          </div>
+          
+  
+          <div class="order-totals">
+            <div class="detail-item subtotal">
+              <span class="detail-label">Subtotal:</span>
+              <span class="detail-value" id="order-subtotal">₹0.00</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">GST (18%):</span>
+              <span class="detail-value" id="order-gst">₹0.00</span>
+            </div>
+            <div class="detail-item total">
+              <span class="detail-label">Total:</span>
+              <span class="detail-value" id="order-total">₹0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%; display: flex; justify-content: center; margin-top: 30px;">
+        <a href="index.html" class="btn btn-hover back-home-btn">Return to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  
+    function generateOrderNumber() {
+      const prefix = "FD";
+      const randomNum = Math.floor(10000 + Math.random() * 90000);
+      return `${prefix}-${randomNum}`;
+    }
+
+  
+    function setCurrentDate() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return now.toLocaleDateString('en-US', options);
+    }
+    
+  
+    function createConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['#ff9d2d', '#ff5e5e', '#42a5f5', '#66bb6a', '#ab47bc', '#ec407a', '#ffa726'];
+      const confettiCount = 150;
+      
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        
+  
+        const left = Math.random() * 100;
+        confetti.style.left = `${left}%`;
+        
+  
+        const size = Math.random() * 10 + 5;
+        confetti.style.width = `${size}px`;
+        confetti.style.height = `${size}px`;
+        
+  
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.backgroundColor = color;
+        
+  
+        const shapes = ['circle', 'square', 'triangle'];
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        
+        if (shape === 'circle') {
+          confetti.style.borderRadius = '50%';
+        } else if (shape === 'triangle') {
+          confetti.style.width = '0';
+          confetti.style.height = '0';
+          confetti.style.backgroundColor = 'transparent';
+          confetti.style.borderLeft = `${size/2}px solid transparent`;
+          confetti.style.borderRight = `${size/2}px solid transparent`;
+          confetti.style.borderBottom = `${size}px solid ${color}`;
+        }
+        
+  
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        
+  
+        const duration = Math.random() * 3 + 2;
+        const delay = Math.random() * 5;
+        confetti.style.animation = `confettiFall ${duration}s ease-in-out ${delay}s forwards`;
+        
+        container.appendChild(confetti);
+      }
+    }
+
+  
+    function displayOrderItems() {
+      const orderItemsList = document.getElementById('order-items-list');
+      const orderSubtotal = document.getElementById('order-subtotal');
+      const orderGst = document.getElementById('order-gst');
+      const orderTotal = document.getElementById('order-total');
+      const confirmationText = document.querySelector('.confirmation-text');
+      
+  
+      const orderDetailsString = localStorage.getItem('orderDetails');
+      
+      if (orderDetailsString) {
+        try {
+          const orderDetails = JSON.parse(orderDetailsString);
+          
+  
+          if (orderDetails.hasTableBooking) {
+            confirmationText.textContent = 'Thank you for your order and table reservation. We look forward to serving you!';
+          }
+          
+  
+          if (orderDetails.items && orderDetails.items.length > 0) {
+            orderDetails.items.forEach(item => {
+              const itemElement = document.createElement('div');
+              
+              const itemTotal = item.price * item.quantity;
+              
+              if (item.isBooking) {
+  
+                itemElement.className = 'order-item booking-item';
+                
+                itemElement.innerHTML = `
+                  <span class="order-item-name">${item.name}</span>
+                  <span class="order-item-quantity"></span>
+                  <span class="order-item-price"><span>Free</span> 🎉</span>
+                `;
+                
+
+                const bookingDetails = document.createElement('div');
+                bookingDetails.className = 'booking-details';
+                bookingDetails.innerHTML = `
+                  <p><strong>Name:</strong> ${item.bookingDetails.name}</p>
+                  <p><strong>Email:</strong> ${item.bookingDetails.email}</p>
+                  <p><strong>Date:</strong> ${item.bookingDetails.date}</p>
+                  ${item.bookingDetails.message ? `<p><strong>Message:</strong> ${item.bookingDetails.message}</p>` : ''}
+                `;
+                
+
+                orderItemsList.appendChild(itemElement);
+                orderItemsList.appendChild(bookingDetails);
+              } else {
+
+                itemElement.className = 'order-item';
+                itemElement.innerHTML = `
+                  <span class="order-item-name">${item.name}</span>
+                  <span class="order-item-quantity">x${item.quantity}</span>
+                  <span class="order-item-price">₹${itemTotal.toFixed(2)}</span>
+                `;
+                orderItemsList.appendChild(itemElement);
+              }
+            });
+            
+
+            orderSubtotal.textContent = `₹${orderDetails.subtotal.toFixed(2)}`;
+            orderGst.textContent = `₹${orderDetails.gst.toFixed(2)}`;
+            orderTotal.textContent = `₹${orderDetails.total.toFixed(2)}`;
+          } else {
+
+            displayNoItemsMessage(orderItemsList);
+          }
+        } catch (e) {
+          console.error('Error parsing order details:', e);
+          displayNoItemsMessage(orderItemsList);
+        }
+        
+
+        localStorage.removeItem('orderDetails');
+      } else {
+
+        displayNoItemsMessage(orderItemsList);
+        
+
+        orderSubtotal.textContent = '₹0.00';
+        orderGst.textContent = '₹0.00';
+        orderTotal.textContent = '₹0.00';
+      }
+    }
+    
+
+    function displayNoItemsMessage(container) {
+      const message = document.createElement('div');
+      message.className = 'no-items-message';
+      message.textContent = 'No items in this order';
+      container.appendChild(message);
+    }
+    
+
+    window.addEventListener('DOMContentLoaded', function() {
+
+      const orderDetailsString = localStorage.getItem('orderDetails');
+      let orderNumber = generateOrderNumber(); // fallback
+      
+      if (orderDetailsString) {
+        try {
+          const orderDetails = JSON.parse(orderDetailsString);
+
+          if (orderDetails.orderNumber) {
+            orderNumber = orderDetails.orderNumber;
+          }
+          
+
+          if (orderDetails.isOffline) {
+            const confirmationTitle = document.querySelector('.confirmation-title');
+            confirmationTitle.innerHTML = 'Order Confirmed! <small style="color: #666; font-size: 0.6em; display: block;">(Offline Mode)</small>';
+            
+            const confirmationText = document.querySelector('.confirmation-text');
+            confirmationText.textContent = 'Your order has been recorded locally. Please contact the restaurant to confirm your order.';
+          }
+        } catch (error) {
+          console.error('Error parsing order details:', error);
+        }
+      }
+      
+      document.getElementById('order-number').textContent = orderNumber;
+      document.getElementById('order-date').textContent = setCurrentDate();
+      
+
+      displayOrderItems();
+      
+      createConfetti();
+      
+      
+      if (localStorage.getItem('orderPlaced') === 'true') {
+        localStorage.removeItem('orderPlaced');
+      }
+      
+      
+      const header = document.querySelector('.header');
+      if (header) {
+        const headerHeight = header.offsetHeight;
+        document.body.style.paddingTop = headerHeight + 'px';
+      }
+    });
+  </script>
+</body>
+
+</html>
