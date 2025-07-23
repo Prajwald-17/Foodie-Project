@@ -3117,7 +3117,7 @@
         const googleId = userInfo.userInfo.sub;
         
         // Try to fetch user profile to pre-fill the form
-        const response = await fetch(`http://localhost:5000/api/users/google/${googleId}`);
+        const response = await fetch(`https://foodie-project-1n0r.onrender.com/api/users/google/${googleId}`);
         
         if (response.ok) {
           const result = await response.json();
@@ -3333,7 +3333,7 @@
             addressData.landmark = landmark;
           }
           
-          await fetch('http://localhost:5000/api/users/updateProfile', {
+          await fetch('https://foodie-project-1n0r.onrender.com/api/users/updateProfile', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -3728,7 +3728,7 @@
     // Function to fetch user profile data from backend
     async function fetchAndDisplayUserProfile(googleId) {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/google/${googleId}`);
+        const response = await fetch(`https://foodie-project-1n0r.onrender.com/api/users/google/${googleId}`);
         if (response.ok) {
           const result = await response.json();
           const user = result.data;
@@ -3883,7 +3883,7 @@
         const userData = JSON.parse(storedUser);
         const googleId = userData.userInfo.sub;
         
-        const response = await fetch('http://localhost:5000/api/users/updateProfile', {
+        const response = await fetch('https://foodie-project-1n0r.onrender.com/api/users/updateProfile', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -3970,7 +3970,7 @@
           addressData.landmark = landmark;
         }
         
-        const response = await fetch('http://localhost:5000/api/users/updateProfile', {
+        const response = await fetch('https://foodie-project-1n0r.onrender.com/api/users/updateProfile', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -4045,7 +4045,7 @@
       }
 
       // Send to backend API
-      fetch('http://localhost:5000/api/users/saveUser', {
+      fetch('https://foodie-project-1n0r.onrender.com/api/users/saveUser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
