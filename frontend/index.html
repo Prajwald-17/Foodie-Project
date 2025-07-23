@@ -4155,7 +4155,7 @@
     function testBackendConnection() {
       console.log('🔄 Testing backend connection...');
       
-      fetch('http://localhost:5000/api/test')
+      fetch('https://foodie-project-1n0r.onrender.com/api/test')
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
