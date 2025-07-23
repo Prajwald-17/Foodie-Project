@@ -4,15 +4,23 @@ const User = require("../models/User");
 
 router.post("/saveUser", async (req, res) => {
   try {
+    console.log("🚀 Received saveUser request");
+    console.log("📊 Request body:", req.body);
+    console.log("📋 Request headers:", req.headers);
+    
     const { fullName, email, profilePicture, googleId, accountType } = req.body;
 
     // Validate required fields
     if (!fullName || !email || !googleId) {
+      console.log("❌ Validation failed - missing required fields");
+      console.log("📊 Received data:", { fullName, email, googleId });
       return res.status(400).json({ 
         success: false,
         error: "Missing required fields. Please provide fullName, email, and googleId." 
       });
     }
+
+    console.log("✅ Validation passed, checking for existing user with googleId:", googleId);
 
     let user = await User.findOne({ googleId });
     

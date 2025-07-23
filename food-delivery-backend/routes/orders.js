@@ -5,13 +5,32 @@ const Order = require("../models/Order");
 
 router.post("/", async (req, res) => {
   try {
-    const { customerName, paymentMethod, items } = req.body;
+    const { customerName, paymentMethod, items, mobile, deliveryAddress } = req.body;
 
     
     if (!customerName || !paymentMethod || !items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ 
         error: "Missing required fields. Please provide customerName, paymentMethod, and at least one item." 
       });
+    }
+
+    // Validate mobile and delivery address if provided
+    if (mobile && mobile.trim()) {
+      const mobileRegex = /^[+]?[\d\s\-\(\)]{10,15}$/;
+      if (!mobileRegex.test(mobile.trim())) {
+        return res.status(400).json({ 
+          error: "Invalid mobile number format." 
+        });
+      }
+    }
+
+    if (deliveryAddress && deliveryAddress.pincode && deliveryAddress.pincode.trim()) {
+      const pincodeRegex = /^[0-9]{6}$/;
+      if (!pincodeRegex.test(deliveryAddress.pincode.trim())) {
+        return res.status(400).json({ 
+          error: "Invalid pincode format. Please provide a 6-digit pincode." 
+        });
+      }
     }
 
     
@@ -48,6 +67,8 @@ router.post("/", async (req, res) => {
     const newOrder = new Order({
       orderNumber,
       customerName,
+      mobile,
+      deliveryAddress,
       paymentMethod,
       items,
       subtotal,

@@ -10,6 +10,24 @@ const OrderSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  mobile: {
+    type: String,
+    default: null
+  },
+  deliveryAddress: {
+    addressLine: {
+      type: String,
+      default: null
+    },
+    landmark: {
+      type: String,
+      default: null
+    },
+    pincode: {
+      type: String,
+      default: null
+    }
+  },
   paymentMethod: {
     type: String,
     required: true

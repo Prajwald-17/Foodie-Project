@@ -7,18 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foodie - Supper delicious Burger in town!</title>
 
-  <!-- 
-    - favicon
-  -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
-  <!-- 
-    - custom css link
-  -->
+
   <link rel="stylesheet" href="./style.css">
   
   <style>
-    /* Cart Booking Item Styles */
+
     .booking-item {
       background-color: #f8f4e9;
       border-left: 4px solid #ff9d2d;
@@ -60,7 +55,6 @@
       background-color: #c0c0c0;
     }
     
-    /* Highlight free booking */
     .cart-item.booking-item .cart-item-price span:first-child,
     .cart-item.booking-item .cart-item-total {
       background-color: #4CAF50;
@@ -82,7 +76,6 @@
       to { transform: scale(1.3); }
     }
     
-    /* Auth Popup Styles */
     .auth-popup {
       display: none;
       position: fixed;
@@ -125,7 +118,6 @@
       color: #000;
     }
     
-    /* Google Sign-In Container */
     .google-signin-container {
       display: flex;
       justify-content: center;
@@ -174,9 +166,6 @@
       font-size: 14px;
     }
     
-    /* Simplified auth styles for Google-only */
-    
-    /* Google Sign-In Button Styling */
     .google-signin-wrapper {
       display: flex;
       justify-content: center;
@@ -196,7 +185,6 @@
       margin: 0 auto !important;
     }
     
-    /* Header Actions Styling */
     .header-actions {
       display: flex;
       align-items: center;
@@ -216,8 +204,7 @@
       background-color: #ff9d2d;
       color: white;
     }
-    
-    /* Sign In Button Styling */
+
     .signin-option {
       display: flex;
       align-items: center;
@@ -260,7 +247,6 @@
       height: 18px;
     }
     
-    /* Alternative outline style for sign in button */
     .signin-btn.outline {
       background-color: transparent;
       color: #ff9d2d;
@@ -275,7 +261,6 @@
       box-shadow: 0 4px 12px rgba(255, 157, 45, 0.3);
     }
     
-    /* Profile Photo Styles */
     #user-profile {
       position: relative;
     }
@@ -289,7 +274,6 @@
       box-shadow: 0 4px 12px rgba(255, 157, 45, 0.4);
     }
     
-    /* Profile Popup Styles */
     .profile-popup {
       display: none;
       position: fixed;
@@ -442,8 +426,238 @@
       width: 16px;
       height: 16px;
     }
-    
-    /* Success Notification Styles */
+
+    .edit-btn {
+      background: none;
+      border: 1px solid #ff9d2d;
+      color: #ff9d2d;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.3s;
+    }
+
+    .edit-btn:hover {
+      background-color: #ff9d2d;
+      color: white;
+    }
+
+    .edit-form {
+      display: none;
+      position: fixed;
+      z-index: 10002;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .edit-form-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 450px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .edit-form .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: #666;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1;
+      transition: color 0.3s;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .edit-form .close-btn:hover {
+      color: #ff9d2d;
+      background-color: rgba(255, 157, 45, 0.1);
+    }
+
+    .edit-form h3 {
+      margin: 0 0 20px 0;
+      color: #333;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #666;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #ff9d2d;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 25px;
+    }
+
+    .form-btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-width: 80px;
+    }
+
+    .form-btn.primary {
+      background-color: #ff9d2d;
+      color: white;
+    }
+
+    .form-btn.primary:hover {
+      background-color: #e8881a;
+    }
+
+    .form-btn.secondary {
+      background-color: #f5f5f5;
+      color: #666;
+    }
+
+    .form-btn.secondary:hover {
+      background-color: #e0e0e0;
+    }
+
+    .form-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .loading-spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #ff9d2d;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .address-display {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .checkout-summary {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .checkout-summary h4 {
+      margin: 0 0 10px 0;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .checkout-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    .checkout-item-name {
+      flex: 1;
+      color: #333;
+    }
+
+    .checkout-item-quantity {
+      color: #666;
+      margin: 0 10px;
+    }
+
+    .checkout-item-price {
+      color: #ff9d2d;
+      font-weight: 500;
+    }
+
+    .checkout-totals {
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .checkout-total-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+      font-size: 14px;
+    }
+
+    .checkout-final-total {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+      border-top: 1px solid #ddd;
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+  
     .success-notification {
       display: none;
       position: fixed;
@@ -495,7 +709,7 @@
       font-size: 14px;
       margin: 0;
       opacity: 0.9;
-    }
+    } 
     
     .notification-close {
       position: absolute;
@@ -551,8 +765,7 @@
         opacity: 0;
       }
     }
-    
-    /* Responsive Design */
+
     @media (max-width: 768px) {
       .auth-content {
         width: 95%;
@@ -600,7 +813,7 @@
         text-align: left;
       }
       
-      /* Mobile responsive for sign in button */
+     
       .signin-btn {
         padding: 8px 12px;
         font-size: 13px;
@@ -615,7 +828,6 @@
         gap: 8px;
       }
       
-      /* Mobile responsive for success notification */
       .success-notification {
         top: 10px;
         right: 10px;
@@ -643,21 +855,15 @@
     }
   </style>
 
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap"
     rel="stylesheet">
 
-  <!-- Google Sign-In Script -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-  <!-- 
-    - preload images
-  -->
+
   <link rel="preload" as="image" href="./assets/images/hero-banner.png" media="min-width(768px)">
   <link rel="preload" as="image" href="./assets/images/hero-banner-bg.png" media="min-width(768px)">
   <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
@@ -666,9 +872,6 @@
 
 <body id="top" >
 
-  <!-- 
-    - #HEADER
-  -->
   <header class="header" data-header>
     <div class="container">
       <h1>
@@ -696,7 +899,7 @@
       </nav>
    
       <div class="header-actions">
-        <!-- Cart Icon -->
+      
         <div class="iconcart">
           <button type="button" class="view-cart-btn" id="open-cart-btn" onclick="openCart();" style="background: none; border: none; cursor: pointer; padding: 0;">
             <svg viewBox="0 0 18 20" class="svg" xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -707,7 +910,7 @@
           </button>
         </div>
         
-        <!-- Sign In Button (shown when not logged in) -->
+       
         <div id="signin-button" class="signin-option" style="margin-left: 15px;">
           <button type="button" class="signin-btn" onclick="showAuthPopup();" title="Sign In">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -717,20 +920,19 @@
           </button>
         </div>
         
-        <!-- User Profile Photo (shown when logged in) -->
+       
         <div id="user-profile" style="display: none; margin-left: 15px;">
           <img id="profile-photo" src="" alt="Profile" onclick="showProfilePopup();" style="width: 40px; height: 40px; border-radius: 50%; cursor: pointer; border: 2px solid #ff9d2d; object-fit: cover;">
         </div>
       </div>
 
-      <!-- Cart popup -->
+  
       <div id="cart-popup" class="cart-popup">
         <div class="cart-content">
           <span class="close-btn" id="close-cart-btn" onclick="closeCart();">&times;</span>
           <h2>Your Cart</h2>
           <ul id="cart-items"></ul>
           <h3 id="cart-total"></h3>
-          <!-- Fallback checkout button that's always in the DOM -->
           <div id="fallback-checkout" style="display: none; margin-top: 20px; text-align: center;">
             <button class="checkout-btn" onclick="showOrderConfirmation()" style="width: 100%; padding: 12px;">Proceed to Checkout</button>
           </div>
@@ -739,18 +941,18 @@
     </div>
   </header>
 
-  <!-- Google Sign-In Popup -->
+
   <div id="auth-popup" class="auth-popup">
     <div class="auth-content">
       <span class="close-btn" id="close-auth-btn" onclick="closeAuthPopup();">&times;</span>
       
-      <!-- Google Sign-In Only -->
+  
       <div id="google-signin-form" class="auth-form active">
         <h2>Welcome to Foodie!</h2>
         <p>Sign in with your Google account to continue</p>
         
         <div class="google-signin-container">
-          <!-- Google Sign-In Button -->
+     
           <div id="google-signin-btn" class="google-signin-wrapper">
             <div class="g_id_signin" 
                  data-type="standard" 
@@ -771,7 +973,7 @@
     </div>
   </div>
 
-  <!-- Profile Popup -->
+
   <div id="profile-popup" class="profile-popup">
     <div class="profile-content">
       <span class="close-btn" onclick="closeProfilePopup();">&times;</span>
@@ -790,6 +992,28 @@
         <div class="detail-item">
           <span class="detail-label">Email:</span>
           <span id="popup-email">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Mobile:</span>
+          <span id="popup-mobile">-</span>
+          <button id="edit-mobile-btn" class="edit-btn" style="display: none;" onclick="showEditMobileForm()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Add
+          </button>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Address:</span>
+          <span id="popup-address">-</span>
+          <button id="edit-address-btn" class="edit-btn" style="display: none;" onclick="showEditAddressForm()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Add
+          </button>
         </div>
         <div class="detail-item">
           <span class="detail-label">Login Time:</span>
@@ -813,7 +1037,108 @@
     </div>
   </div>
 
-  <!-- Success Notification -->
+  <!-- Mobile Edit Form -->
+  <div id="mobile-edit-form" class="edit-form">
+    <div class="edit-form-content">
+      <span class="close-btn" onclick="closeMobileEditForm();">&times;</span>
+      <h3>Add Mobile Number</h3>
+      <form onsubmit="updateMobile(event)">
+        <div class="form-group">
+          <label for="mobile-input">Mobile Number *</label>
+          <input type="tel" id="mobile-input" placeholder="Enter your mobile number" maxlength="15" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="form-btn secondary" onclick="closeMobileEditForm()">Cancel</button>
+          <button type="submit" class="form-btn primary">
+            <span class="loading-spinner" id="mobile-loading"></span>
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Address Edit Form -->
+  <div id="address-edit-form" class="edit-form">
+    <div class="edit-form-content">
+      <span class="close-btn" onclick="closeAddressEditForm();">&times;</span>
+      <h3>Add Address Details</h3>
+      <form onsubmit="updateAddress(event)">
+        <div class="form-group">
+          <label for="address-line-input">Address Line *</label>
+          <textarea id="address-line-input" placeholder="Enter your full address" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="landmark-input">Landmark</label>
+          <input type="text" id="landmark-input" placeholder="Nearby landmark (optional)">
+        </div>
+        <div class="form-group">
+          <label for="pincode-input">Pincode *</label>
+          <input type="text" id="pincode-input" placeholder="Enter pincode" pattern="[0-9]{6}" maxlength="6" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="form-btn secondary" onclick="closeAddressEditForm()">Cancel</button>
+          <button type="submit" class="form-btn primary">
+            <span class="loading-spinner" id="address-loading"></span>
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Checkout Details Form -->
+  <div id="checkout-details-form" class="edit-form">
+    <div class="edit-form-content" style="max-width: 500px;">
+      <span class="close-btn" onclick="closeCheckoutDetailsForm();">&times;</span>
+      <h3>📍 Update Delivery Details</h3>
+      <p style="color: #666; font-size: 14px; margin-bottom: 20px;">Please confirm or update your mobile number and delivery address. You can change these details for each order.</p>
+      
+      <form onsubmit="proceedWithOrder(event)">
+        <div class="form-group">
+          <label for="checkout-mobile-input">Mobile Number *</label>
+          <input type="tel" id="checkout-mobile-input" placeholder="Enter your mobile number" maxlength="15" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="checkout-address-line-input">Delivery Address *</label>
+          <textarea id="checkout-address-line-input" placeholder="Enter your complete delivery address" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="checkout-landmark-input">Landmark</label>
+          <input type="text" id="checkout-landmark-input" placeholder="Nearby landmark (optional)">
+        </div>
+        
+        <div class="form-group">
+          <label for="checkout-pincode-input">Pincode *</label>
+          <input type="text" id="checkout-pincode-input" placeholder="Enter pincode" pattern="[0-9]{6}" maxlength="6" required>
+        </div>
+        
+        <div class="checkout-summary" style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+          <h4 style="margin: 0 0 10px 0; color: #333;">Order Summary</h4>
+          <div id="checkout-order-items"></div>
+          <div id="checkout-order-total" style="font-weight: bold; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;"></div>
+          <div style="margin-top: 15px; padding: 12px; background-color: #e8f5e8; border-radius: 8px; border-left: 4px solid #4CAF50;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 18px;">💰</span>
+              <span style="color: #2d7a2d; font-weight: bold;">Payment Method: Cash on Delivery (COD)</span>
+            </div>
+            <p style="margin: 5px 0 0 26px; font-size: 12px; color: #5a7a5a;">Pay when your order is delivered to your doorstep</p>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="form-btn secondary" onclick="closeCheckoutDetailsForm()">Cancel</button>
+          <button type="submit" class="form-btn primary">
+            <span class="loading-spinner" id="checkout-loading"></span>
+            🛒 Place Order with COD
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div id="success-notification" class="success-notification">
     <button class="notification-close" onclick="closeSuccessNotification();">&times;</button>
     <div class="notification-content">
@@ -867,12 +1192,6 @@
       </section>
 
 
-
-
-
-      <!-- 
-        - #PROMO
-      -->
 
       <section class="section section-divider white promo">
         <div class="container">
@@ -1154,12 +1473,6 @@
 
 
 
-
-
-      <!-- 
-        - #ABOUT
-      -->
-
       <section class="section section-divider gray about" id="about">
         <div class="container">
 
@@ -1221,11 +1534,6 @@
 
 
 
-
-
-      <!-- 
-        - #FOOD MENU
-      -->
 
       <section class="section food-menu" id="food-menu">
         <div class="container">
@@ -2047,7 +2355,7 @@
               
                     <div class="badge">-15%</div>
               
-                    <!-- Add onclick here 👇 -->
+           
                     <button class="btn food-menu-btn" onclick="addToCart('Dr Pepper Fizz',159)">Add to Cart</button>
                   </div>
               
@@ -2091,11 +2399,6 @@
 
 
 
-
-      <!-- 
-        - #CTA
-      -->
-
       <section class="section section-divider white cta" style="background-image: url('./assets/images/hero-bg.jpg')">
         <div class="container">
 
@@ -2128,12 +2431,6 @@
 
 
 
-
-
-      <!-- 
-        - #DELIVERY
-      -->
-
       <section class="section section-divider gray delivery">
         <div class="container">
 
@@ -2164,12 +2461,6 @@
       </section>
 
 
-
-
-
-      <!-- 
-        - #TESTIMONIALS
-      -->
 
       <section class="section section-divider white testi">
         <div class="container">
@@ -2291,14 +2582,6 @@
       </section>
 
 
-
-
-
-
-      <!-- 
-        - #BANNER
-      -->
-
       <section class="section section-divider gray banner">
         <div class="container">
 
@@ -2383,26 +2666,9 @@
 
 
 
-      <!-- 
-        - #BLOG
-      -->
-
-      <!-- Blog section removed -->
-
-
-
-
-
     </article>
   </main>
 
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
 
   <footer class="footer" id="dine">
 
@@ -2535,44 +2801,28 @@
   </footer>
 
 
-
-
-
-  <!-- 
-    - #BACK TO TOP
-  -->
-
   <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
     <ion-icon name="chevron-up"></ion-icon>
   </a>
 
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
   <script src="./assets/js/script.js" defer></script>
 
-  <!-- 
-    - ionicon link
-  -->
+  
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <!-- Script to handle Order Now buttons -->
+ 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Get all Order Now buttons
+  
       const orderNowButtons = document.querySelectorAll('button.btn:not(.food-menu-btn):not(.checkout-btn)');
       
-      // Add click event listener to each button
+    
       orderNowButtons.forEach(button => {
         if (button.textContent.trim() === 'Order Now') {
           button.addEventListener('click', function(e) {
             e.preventDefault();
-            // Scroll to pizza menu section
+           
             document.getElementById('pizza_menu').scrollIntoView({ behavior: 'smooth' });
           });
         }
@@ -2580,28 +2830,26 @@
     });
   </script>
 
-  <!-- Inline script for cart functionality -->
+
   <script>
     let cart = [];
-    const GST_RATE = 0.18; // 18% GST
-    const TABLE_BOOKING_PRICE = 0; // Table booking is free
+    const GST_RATE = 0.18; 
+    const TABLE_BOOKING_PRICE = 0; 
     
     function addToCart(name, price) {
-      // Check if item already exists in cart
+     
       const existingItemIndex = cart.findIndex(item => item.name === name);
       
       if (existingItemIndex !== -1) {
-        // If item exists, increase quantity
+        
         cart[existingItemIndex].quantity += 1;
       } else {
-        // If item doesn't exist, add new item with quantity 1
+        
         cart.push({ name, price, quantity: 1 });
       }
-      
-      // Show notification
+
       showAddedToCartNotification(name);
       
-      // Update cart UI
       updateCartPopup();
       updateCartCount();
     }
@@ -2609,14 +2857,14 @@
     function addTableBookingToCart(event) {
       event.preventDefault();
       
-      // Get form values
+   
       const name = document.getElementById('booking_name').value;
       const email = document.getElementById('booking_email').value;
       const persons = document.getElementById('booking_persons').value;
       const date = document.getElementById('booking_date').value;
       const message = document.getElementById('booking_message').value;
       
-      // Format date for display
+    
       const formattedDate = new Date(date).toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
@@ -2624,13 +2872,10 @@
         day: 'numeric'
       });
       
-      // Table booking is 
-      const price = TABLE_BOOKING_PRICE; // Always 0
-      
-      // Create item name with booking details
+      const price = TABLE_BOOKING_PRICE; 
       const itemName = `Table Reservation - ${persons} (${formattedDate})`;
       
-      // Add booking to cart as a special item
+  
       cart.push({
         name: itemName,
         price: price,
@@ -2645,17 +2890,15 @@
         }
       });
       
-      // Show notification
       showAddedToCartNotification("Table Reservation");
       
-      // Update cart UI
+     
       updateCartPopup();
       updateCartCount();
       
       // Reset form
       document.getElementById('table-booking-form').reset();
       
-      // Open cart to show the booking
       openCart();
       
       return false;
@@ -2843,7 +3086,7 @@
       // Function to redirect to the order confirmation page
     });
 
-    // Order confirmation function - modified to include backend integration
+    // Order confirmation function - modified to check user profile completion
     async function showOrderConfirmation() {
       // First close the cart popup if it's open
       const cartPopup = document.getElementById('cart-popup');
@@ -2857,6 +3100,272 @@
         return;
       }
       
+      // Check if user is logged in
+      const storedUser = localStorage.getItem('googleUser');
+      if (!storedUser) {
+        alert('Please sign in to place an order.');
+        showAuthPopup();
+        return;
+      }
+      
+      // ALWAYS show the checkout details form for every user (new or existing)
+      // This ensures they can update their address and mobile number each time
+      let userData = null;
+      
+      try {
+        const userInfo = JSON.parse(storedUser);
+        const googleId = userInfo.userInfo.sub;
+        
+        // Try to fetch user profile to pre-fill the form
+        const response = await fetch(`http://localhost:5000/api/users/google/${googleId}`);
+        
+        if (response.ok) {
+          const result = await response.json();
+          userData = result.data;
+        }
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+      
+      // Always show checkout details form (will pre-fill if user data exists)
+      showCheckoutDetailsForm(userData);
+    }
+
+    // Function to show checkout details form
+    function showCheckoutDetailsForm(userData = null) {
+      const form = document.getElementById('checkout-details-form');
+      
+      // Pre-fill form if user data is available
+      if (userData) {
+        document.getElementById('checkout-mobile-input').value = userData.mobile || '';
+        if (userData.address) {
+          document.getElementById('checkout-address-line-input').value = userData.address.addressLine || '';
+          document.getElementById('checkout-landmark-input').value = userData.address.landmark || '';
+          document.getElementById('checkout-pincode-input').value = userData.address.pincode || '';
+        }
+      }
+      
+      // Populate order summary
+      populateCheckoutSummary();
+      
+      // Add event listeners to update summary when form fields change
+      const formInputs = [
+        'checkout-mobile-input',
+        'checkout-address-line-input', 
+        'checkout-landmark-input',
+        'checkout-pincode-input'
+      ];
+      
+      formInputs.forEach(inputId => {
+        const input = document.getElementById(inputId);
+        if (input) {
+          input.addEventListener('input', populateCheckoutSummary);
+          input.addEventListener('blur', populateCheckoutSummary);
+        }
+      });
+      
+      if (form) {
+        form.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        document.getElementById('checkout-mobile-input').focus();
+      }
+    }
+
+    // Function to populate checkout summary
+    function populateCheckoutSummary() {
+      const itemsContainer = document.getElementById('checkout-order-items');
+      const totalContainer = document.getElementById('checkout-order-total');
+      
+      let subtotal = 0;
+      itemsContainer.innerHTML = '';
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'checkout-item';
+        
+        if (item.isBooking) {
+          itemDiv.innerHTML = `
+            <span class="checkout-item-name">${item.name}</span>
+            <span class="checkout-item-price">Free</span>
+          `;
+        } else {
+          itemDiv.innerHTML = `
+            <span class="checkout-item-name">${item.name}</span>
+            <span class="checkout-item-quantity">×${item.quantity}</span>
+            <span class="checkout-item-price">₹${itemTotal}</span>
+          `;
+        }
+        
+        itemsContainer.appendChild(itemDiv);
+      });
+
+      // Get delivery information from form inputs
+      const mobileInput = document.getElementById('checkout-mobile-input');
+      const addressInput = document.getElementById('checkout-address-line-input');
+      const landmarkInput = document.getElementById('checkout-landmark-input');
+      const pincodeInput = document.getElementById('checkout-pincode-input');
+
+      const mobile = mobileInput ? mobileInput.value.trim() : '';
+      const address = addressInput ? addressInput.value.trim() : '';
+      const landmark = landmarkInput ? landmarkInput.value.trim() : '';
+      const pincode = pincodeInput ? pincodeInput.value.trim() : '';
+
+      // Build delivery info section
+      let deliveryInfoHTML = '';
+      if (mobile || address) {
+        deliveryInfoHTML = `
+          <div class="delivery-info-section" style="margin: 15px 0; padding: 12px; background-color: #f0f8ff; border-radius: 8px; border-left: 4px solid #007bff;">
+            <h5 style="margin: 0 0 10px 0; color: #333; font-size: 14px; font-weight: 600;">📍 Delivery Information</h5>
+        `;
+        
+        if (mobile) {
+          deliveryInfoHTML += `
+            <div style="margin: 5px 0; font-size: 13px;">
+              <span style="color: #666; font-weight: 500;">Mobile:</span>
+              <span style="color: #333; margin-left: 8px;">${mobile}</span>
+            </div>
+          `;
+        }
+        
+        if (address) {
+          let fullAddress = address;
+          if (landmark) fullAddress += `, ${landmark}`;
+          if (pincode) fullAddress += ` - ${pincode}`;
+          
+          deliveryInfoHTML += `
+            <div style="margin: 5px 0; font-size: 13px;">
+              <span style="color: #666; font-weight: 500;">Address:</span>
+              <span style="color: #333; margin-left: 8px; display: block; margin-top: 3px; padding-left: 8px; border-left: 2px solid #e0e0e0;">${fullAddress}</span>
+            </div>
+          `;
+        }
+        
+        deliveryInfoHTML += '</div>';
+      }
+      
+      const gstAmount = subtotal * GST_RATE;
+      const total = subtotal + gstAmount;
+      
+      totalContainer.innerHTML = `
+        ${deliveryInfoHTML}
+        <div class="checkout-totals">
+          <div class="checkout-total-row">
+            <span>Subtotal:</span>
+            <span>₹${subtotal.toFixed(2)}</span>
+          </div>
+          <div class="checkout-total-row">
+            <span>GST (18%):</span>
+            <span>₹${gstAmount.toFixed(2)}</span>
+          </div>
+          <div class="checkout-total-row checkout-final-total">
+            <span>Total:</span>
+            <span>₹${total.toFixed(2)}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // Function to close checkout details form
+    function closeCheckoutDetailsForm() {
+      const form = document.getElementById('checkout-details-form');
+      if (form) {
+        form.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Clear form
+        document.getElementById('checkout-mobile-input').value = '';
+        document.getElementById('checkout-address-line-input').value = '';
+        document.getElementById('checkout-landmark-input').value = '';
+        document.getElementById('checkout-pincode-input').value = '';
+      }
+    }
+
+    // Function to proceed with order after collecting details
+    async function proceedWithOrder(event) {
+      event.preventDefault();
+      
+      const mobile = document.getElementById('checkout-mobile-input').value.trim();
+      const addressLine = document.getElementById('checkout-address-line-input').value.trim();
+      const landmark = document.getElementById('checkout-landmark-input').value.trim();
+      const pincode = document.getElementById('checkout-pincode-input').value.trim();
+      const loadingSpinner = document.getElementById('checkout-loading');
+      const submitBtn = event.target.querySelector('button[type="submit"]');
+      
+      if (!mobile || !addressLine || !pincode) {
+        alert('Please fill in all required fields (Mobile, Address, and Pincode)');
+        return;
+      }
+      
+      // Validate mobile number
+      const mobileRegex = /^[+]?[\d\s\-\(\)]{10,15}$/;
+      if (!mobileRegex.test(mobile)) {
+        alert('Please enter a valid mobile number');
+        return;
+      }
+      
+      // Validate pincode
+      const pincodeRegex = /^[0-9]{6}$/;
+      if (!pincodeRegex.test(pincode)) {
+        alert('Please enter a valid 6-digit pincode');
+        return;
+      }
+      
+      try {
+        // Show loading
+        loadingSpinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        
+        const storedUser = localStorage.getItem('googleUser');
+        if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          const googleId = userData.userInfo.sub;
+          
+          // Update user profile with new details
+          const addressData = {
+            addressLine: addressLine,
+            pincode: pincode
+          };
+          
+          if (landmark) {
+            addressData.landmark = landmark;
+          }
+          
+          await fetch('http://localhost:5000/api/users/updateProfile', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              googleId: googleId,
+              mobile: mobile,
+              address: addressData
+            })
+          });
+        }
+        
+        // Place the order
+        await placeOrderWithDetails(mobile, addressLine, landmark, pincode);
+        
+        // Close the form
+        closeCheckoutDetailsForm();
+        
+      } catch (error) {
+        console.error('Error processing order:', error);
+        alert(`Error processing order: ${error.message}`);
+      } finally {
+        // Hide loading
+        loadingSpinner.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    }
+
+
+
+    // Function to place order with delivery details
+    async function placeOrderWithDetails(mobile, addressLine, landmark, pincode) {
       // Calculate order totals
       let subtotal = 0;
       let hasTableBooking = false;
@@ -2871,7 +3380,7 @@
       const gstAmount = subtotal * GST_RATE;
       const total = subtotal + gstAmount;
       
-      // Get customer name from Google Sign-In if available
+      // Get customer name
       let customerName = 'Guest Customer';
       const storedUser = localStorage.getItem('googleUser');
       if (storedUser) {
@@ -2886,20 +3395,22 @@
       // Prepare order data for backend
       const orderData = {
         customerName: customerName,
-        paymentMethod: 'Cash on Delivery', // Default payment method
+        paymentMethod: 'Cash on Delivery',
+        mobile: mobile,
+        deliveryAddress: {
+          addressLine: addressLine,
+          landmark: landmark,
+          pincode: pincode
+        },
         items: cart.map(item => ({
           name: item.name,
           price: item.price,
-          quantity: item.quantity
+          quantity: item.quantity,
+          isBooking: item.isBooking || false
         }))
       };
       
       try {
-        // Show loading state
-        const originalButtonText = document.querySelector('.checkout-btn').textContent;
-        document.querySelector('.checkout-btn').textContent = 'Processing Order...';
-        document.querySelector('.checkout-btn').disabled = true;
-        
         // Send order to backend
         const response = await fetch('http://localhost:5000/api/orders', {
           method: 'POST',
@@ -2916,20 +3427,33 @@
         const savedOrder = await response.json();
         console.log('Order saved to backend:', savedOrder);
         
-        // Prepare order details with backend response
+        // Prepare order details for confirmation page
         const orderDetails = {
           items: cart,
           subtotal: subtotal,
           gst: gstAmount,
           hasTableBooking: hasTableBooking,
           total: total,
-          orderNumber: savedOrder.orderNumber, // Use backend-generated order number
-          orderId: savedOrder._id, // Store MongoDB ID
+          orderNumber: savedOrder.orderNumber,
+          orderId: savedOrder._id,
           customerName: customerName,
-          backendOrder: savedOrder // Store complete backend response
+          mobile: mobile,
+          deliveryAddress: {
+            addressLine: addressLine,
+            landmark: landmark,
+            pincode: pincode
+          },
+          deliveryInfo: {
+            mobile: mobile,
+            address: addressLine,
+            landmark: landmark,
+            pincode: pincode
+          },
+          paymentMethod: 'Cash on Delivery',
+          backendOrder: savedOrder
         };
         
-        // Save order details to localStorage for the confirmation page
+        // Save order details to localStorage
         localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
         localStorage.setItem('orderPlaced', 'true');
         
@@ -2937,39 +3461,50 @@
         cart = [];
         updateCartCount();
         
-        // Reset button state
-        document.querySelector('.checkout-btn').textContent = originalButtonText;
-        document.querySelector('.checkout-btn').disabled = false;
+        // Show success notification
+        showSuccessNotification('Order placed successfully! Redirecting to confirmation page...');
         
-        // Redirect to the order confirmation page
-        window.location.href = 'order-confirmation.html';
+        // Redirect to confirmation page after a short delay
+        setTimeout(() => {
+          window.location.href = 'order-confirmation.html';
+        }, 2000);
         
       } catch (error) {
         console.error('Error placing order:', error);
         
-        // Reset button state
-        document.querySelector('.checkout-btn').textContent = originalButtonText;
-        document.querySelector('.checkout-btn').disabled = false;
-        
         // Show error message and ask if user wants to continue offline
         const userChoice = confirm(
           'Unable to connect to the server. Your order could not be saved to our database.\n\n' +
-          'Would you like to continue with offline mode? (Order details will be shown but not saved to the server)'
+          'Would you like to continue anyway? You can place the order offline, but please note it down manually.'
         );
         
         if (userChoice) {
-          // Continue with offline mode
+          // Prepare offline order details
           const orderDetails = {
             items: cart,
             subtotal: subtotal,
             gst: gstAmount,
             hasTableBooking: hasTableBooking,
             total: total,
-            orderNumber: generateOfflineOrderNumber(), // Generate local order number
+            orderNumber: generateOfflineOrderNumber(),
             customerName: customerName,
-            isOffline: true // Flag to indicate offline order
+            mobile: mobile,
+            deliveryAddress: {
+              addressLine: addressLine,
+              landmark: landmark,
+              pincode: pincode
+            },
+            deliveryInfo: {
+              mobile: mobile,
+              address: addressLine,
+              landmark: landmark,
+              pincode: pincode
+            },
+            paymentMethod: 'Cash on Delivery',
+            isOffline: true
           };
           
+          // Save to localStorage
           localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
           localStorage.setItem('orderPlaced', 'true');
           
@@ -2977,7 +3512,7 @@
           cart = [];
           updateCartCount();
           
-          // Redirect to the order confirmation page
+          // Redirect to confirmation page
           window.location.href = 'order-confirmation.html';
         }
       }
@@ -2991,7 +3526,7 @@
     }
     
     // Google Sign-In Configuration
-    const GOOGLE_CLIENT_ID = '471159121003-ovj88mrkq4bpeagr8hvn5soo5pk7ksk2.apps.googleusercontent.com'; // Replace with your actual Google Client ID
+    const GOOGLE_CLIENT_ID = '471159121003-ovj88mrkq4bpeagr8hvn5soo5pk7ksk2.apps.googleusercontent.com'; // Your configured Google Client ID
     
     // Initialize Google Sign-In
     function initializeGoogleSignIn() {
@@ -3074,7 +3609,7 @@
     function displayUserInfo(userInfo, credential) {
       if (userInfo) {
         // Show success notification instead of alert
-        showSuccessNotification(userInfo.name || 'User');
+        showSuccessNotification(userInfo.name || 'User', true);
         
         // Update the UI to show the user is logged in
         updateUIForLoggedInUser(userInfo);
@@ -3085,22 +3620,29 @@
     }
     
     // Function to show success notification
-    function showSuccessNotification(userName) {
+    function showSuccessNotification(userNameOrMessage, isSignIn = false) {
       const notification = document.getElementById('success-notification');
       const titleElement = notification.querySelector('.notification-title');
       const messageElement = notification.querySelector('.notification-message');
       
-      // Update notification content
-      titleElement.textContent = 'Successfully Signed In!';
-      messageElement.textContent = `Welcome ${userName}! You can now enjoy all our features.`;
+      if (isSignIn) {
+        // Update notification content for sign in
+        titleElement.textContent = 'Successfully Signed In!';
+        messageElement.textContent = `Welcome ${userNameOrMessage}! You can now enjoy all our features.`;
+      } else {
+        // Update notification content for other success messages
+        titleElement.textContent = 'Success!';
+        messageElement.textContent = userNameOrMessage;
+      }
       
       // Show notification
       notification.classList.add('show');
       
-      // Auto-hide after 5 seconds
+      // Auto-hide after 5 seconds for sign in, 4 seconds for others
+      const hideTimeout = isSignIn ? 5000 : 4000;
       setTimeout(() => {
         closeSuccessNotification();
-      }, 5000);
+      }, hideTimeout);
     }
     
     // Function to close success notification
@@ -3168,6 +3710,9 @@
           const loginTime = new Date(userData.loginTime).toLocaleString();
           document.getElementById('popup-login-time').textContent = loginTime;
           
+          // Fetch and display profile data from backend
+          fetchAndDisplayUserProfile(userInfo.sub);
+          
           // Show popup
           const popup = document.getElementById('profile-popup');
           if (popup) {
@@ -3179,6 +3724,64 @@
         }
       }
     }
+
+    // Function to fetch user profile data from backend
+    async function fetchAndDisplayUserProfile(googleId) {
+      try {
+        const response = await fetch(`http://localhost:5000/api/users/google/${googleId}`);
+        if (response.ok) {
+          const result = await response.json();
+          const user = result.data;
+          
+          // Display mobile number
+          const mobileElement = document.getElementById('popup-mobile');
+          const editMobileBtn = document.getElementById('edit-mobile-btn');
+          
+          if (user.mobile) {
+            mobileElement.textContent = user.mobile;
+            editMobileBtn.style.display = 'none';
+          } else {
+            mobileElement.textContent = 'Not added';
+            editMobileBtn.style.display = 'inline-flex';
+            editMobileBtn.textContent = ' Add';
+          }
+          
+          // Display address
+          const addressElement = document.getElementById('popup-address');
+          const editAddressBtn = document.getElementById('edit-address-btn');
+          
+          if (user.address && user.address.addressLine) {
+            let addressText = user.address.addressLine;
+            if (user.address.landmark) {
+              addressText += `\nLandmark: ${user.address.landmark}`;
+            }
+            if (user.address.pincode) {
+              addressText += `\nPincode: ${user.address.pincode}`;
+            }
+            addressElement.innerHTML = `<div class="address-display">${addressText.replace(/\n/g, '<br>')}</div>`;
+            editAddressBtn.style.display = 'none';
+          } else {
+            addressElement.textContent = 'Not added';
+            editAddressBtn.style.display = 'inline-flex';
+            editAddressBtn.textContent = ' Add';
+          }
+          
+          // Store user data for editing
+          window.currentUserData = user;
+          
+        } else {
+          console.error('Failed to fetch user profile:', response.status);
+          // Show basic info without edit options
+          document.getElementById('popup-mobile').textContent = 'Not available';
+          document.getElementById('popup-address').textContent = 'Not available';
+        }
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+        // Show basic info without edit options
+        document.getElementById('popup-mobile').textContent = 'Not available';
+        document.getElementById('popup-address').textContent = 'Not available';
+      }
+    }
     
     // Function to close profile popup
     function closeProfilePopup() {
@@ -3188,6 +3791,235 @@
         document.body.style.overflow = 'auto';
       }
     }
+
+    // Functions to show edit forms
+    function showEditMobileForm() {
+      const form = document.getElementById('mobile-edit-form');
+      const input = document.getElementById('mobile-input');
+      
+      // Pre-fill with existing data if available
+      if (window.currentUserData && window.currentUserData.mobile) {
+        input.value = window.currentUserData.mobile;
+      }
+      
+      if (form) {
+        form.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        input.focus();
+      }
+    }
+
+    function showEditAddressForm() {
+      const form = document.getElementById('address-edit-form');
+      const addressLineInput = document.getElementById('address-line-input');
+      const landmarkInput = document.getElementById('landmark-input');
+      const pincodeInput = document.getElementById('pincode-input');
+      
+      // Pre-fill with existing data if available
+      if (window.currentUserData && window.currentUserData.address) {
+        addressLineInput.value = window.currentUserData.address.addressLine || '';
+        landmarkInput.value = window.currentUserData.address.landmark || '';
+        pincodeInput.value = window.currentUserData.address.pincode || '';
+      }
+      
+      if (form) {
+        form.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        addressLineInput.focus();
+      }
+    }
+
+    // Functions to close edit forms
+    function closeMobileEditForm() {
+      const form = document.getElementById('mobile-edit-form');
+      if (form) {
+        form.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.getElementById('mobile-input').value = '';
+      }
+    }
+
+    function closeAddressEditForm() {
+      const form = document.getElementById('address-edit-form');
+      if (form) {
+        form.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.getElementById('address-line-input').value = '';
+        document.getElementById('landmark-input').value = '';
+        document.getElementById('pincode-input').value = '';
+      }
+    }
+
+    // Function to update mobile number
+    async function updateMobile(event) {
+      event.preventDefault();
+      
+      const mobile = document.getElementById('mobile-input').value.trim();
+      const loadingSpinner = document.getElementById('mobile-loading');
+      const submitBtn = event.target.querySelector('button[type="submit"]');
+      
+      if (!mobile) {
+        alert('Please enter a mobile number');
+        return;
+      }
+      
+      // Validate mobile number (basic validation)
+      const mobileRegex = /^[+]?[\d\s\-\(\)]{10,15}$/;
+      if (!mobileRegex.test(mobile)) {
+        alert('Please enter a valid mobile number');
+        return;
+      }
+      
+      try {
+        // Show loading
+        loadingSpinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        
+        const storedUser = localStorage.getItem('googleUser');
+        if (!storedUser) {
+          throw new Error('User not logged in');
+        }
+        
+        const userData = JSON.parse(storedUser);
+        const googleId = userData.userInfo.sub;
+        
+        const response = await fetch('http://localhost:5000/api/users/updateProfile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            googleId: googleId,
+            mobile: mobile
+          })
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Mobile updated successfully:', result);
+          
+          // Update the display
+          document.getElementById('popup-mobile').textContent = mobile;
+          document.getElementById('edit-mobile-btn').style.display = 'none';
+          
+          // Update stored user data
+          window.currentUserData = result.user;
+          
+          // Close form
+          closeMobileEditForm();
+          
+          // Show success notification
+          showSuccessNotification('Mobile number updated successfully!');
+          
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to update mobile number');
+        }
+        
+      } catch (error) {
+        console.error('Error updating mobile:', error);
+        alert(`Error updating mobile number: ${error.message}`);
+      } finally {
+        // Hide loading
+        loadingSpinner.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Function to update address
+    async function updateAddress(event) {
+      event.preventDefault();
+      
+      const addressLine = document.getElementById('address-line-input').value.trim();
+      const landmark = document.getElementById('landmark-input').value.trim();
+      const pincode = document.getElementById('pincode-input').value.trim();
+      const loadingSpinner = document.getElementById('address-loading');
+      const submitBtn = event.target.querySelector('button[type="submit"]');
+      
+      if (!addressLine || !pincode) {
+        alert('Please fill in the required fields (Address Line and Pincode)');
+        return;
+      }
+      
+      // Validate pincode
+      const pincodeRegex = /^[0-9]{6}$/;
+      if (!pincodeRegex.test(pincode)) {
+        alert('Please enter a valid 6-digit pincode');
+        return;
+      }
+      
+      try {
+        // Show loading
+        loadingSpinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        
+        const storedUser = localStorage.getItem('googleUser');
+        if (!storedUser) {
+          throw new Error('User not logged in');
+        }
+        
+        const userData = JSON.parse(storedUser);
+        const googleId = userData.userInfo.sub;
+        
+        const addressData = {
+          addressLine: addressLine,
+          pincode: pincode
+        };
+        
+        if (landmark) {
+          addressData.landmark = landmark;
+        }
+        
+        const response = await fetch('http://localhost:5000/api/users/updateProfile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            googleId: googleId,
+            address: addressData
+          })
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Address updated successfully:', result);
+          
+          // Update the display
+          let addressText = addressLine;
+          if (landmark) {
+            addressText += `\nLandmark: ${landmark}`;
+          }
+          addressText += `\nPincode: ${pincode}`;
+          
+          document.getElementById('popup-address').innerHTML = `<div class="address-display">${addressText.replace(/\n/g, '<br>')}</div>`;
+          document.getElementById('edit-address-btn').style.display = 'none';
+          
+          // Update stored user data
+          window.currentUserData = result.user;
+          
+          // Close form
+          closeAddressEditForm();
+          
+          // Show success notification
+          showSuccessNotification('Address updated successfully!');
+          
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to update address');
+        }
+        
+      } catch (error) {
+        console.error('Error updating address:', error);
+        alert(`Error updating address: ${error.message}`);
+      } finally {
+        // Hide loading
+        loadingSpinner.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    }
+
+
     
     // Function to send user profile data to backend
     function sendUserDataToBackend(userInfo) {
@@ -3213,7 +4045,7 @@
       }
 
       // Send to backend API
-      fetch('http://localhost:5000/api/saveUser', {
+      fetch('http://localhost:5000/api/users/saveUser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -3451,6 +4283,36 @@
         });
       }
       
+      // Mobile edit form click outside to close
+      const mobileEditForm = document.getElementById('mobile-edit-form');
+      if (mobileEditForm) {
+        mobileEditForm.addEventListener('click', function(event) {
+          if (event.target === mobileEditForm) {
+            closeMobileEditForm();
+          }
+        });
+      }
+      
+      // Address edit form click outside to close
+      const addressEditForm = document.getElementById('address-edit-form');
+      if (addressEditForm) {
+        addressEditForm.addEventListener('click', function(event) {
+          if (event.target === addressEditForm) {
+            closeAddressEditForm();
+          }
+        });
+      }
+      
+      // Checkout details form click outside to close
+      const checkoutDetailsForm = document.getElementById('checkout-details-form');
+      if (checkoutDetailsForm) {
+        checkoutDetailsForm.addEventListener('click', function(event) {
+          if (event.target === checkoutDetailsForm) {
+            closeCheckoutDetailsForm();
+          }
+        });
+      }
+      
       // Form validation removed - Google Sign-In only
       
       // Add logout functionality (you can add a logout button to your UI)
@@ -3462,6 +4324,9 @@
       if (e.key === 'Escape') {
         closeAuthPopup();
         closeProfilePopup();
+        closeMobileEditForm();
+        closeAddressEditForm();
+        closeCheckoutDetailsForm();
       }
     });
   </script>
