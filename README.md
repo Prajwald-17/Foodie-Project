@@ -63,7 +63,7 @@ Foodie_Project/
    cd foodie-project
 2. Frontend Setup
    
-   cd frontend
+   cd frontend<br>
    open index.html
    
 4. Backend Setup
