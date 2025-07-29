@@ -59,7 +59,7 @@ Foodie_Project/<br>
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/foodie-project.git
+   git clone https://github.com/Prajwald-17/foodie-project.git
    cd foodie-project
 2. Frontend Setup
    
