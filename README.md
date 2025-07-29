@@ -25,7 +25,7 @@ A full-stack web application for browsing menus, placing food orders, and tracki
 
 ## 📂 Folder Structure
 Foodie_Project/<br>
-│<br>
+|<br>
 ├── frontend/<br>
 │ ├── index.html<br>
 │ ├── assets/js/script.js<br>
