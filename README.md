@@ -24,24 +24,24 @@ A full-stack web application for browsing menus, placing food orders, and tracki
 ---
 
 ## 📂 Folder Structure
-Foodie_Project/
-│
-├── frontend/
-│ ├── index.html
-│ ├── assets/js/script.js
-│ ├── assets/images
-| ├── order-confirmation.html
-| └── style.css
-│
-├── food-delivery-backend/
-│ ├── models/Order.js,User.js
-| ├── node_modules/
-│ ├── routes/orders.js,users.js
-| ├── .env
-| ├── package-lock.json
-| ├── package.json
-│ └── server.js 
-
+Foodie_Project/<br>
+│<br>
+├── frontend/<br>
+│ ├── index.html<br>
+│ ├── assets/js/script.js<br>
+│ ├── assets/images<br>
+| ├── order-confirmation.html<br>
+| └── style.css<br>
+│<br>
+├── food-delivery-backend/<br>
+│ ├── models/Order.js,User.js<br>
+| ├── node_modules/<br>
+│ ├── routes/orders.js,users.js<br>
+| ├── .env<br>
+| ├── package-lock.json<br>
+| ├── package.json<br>
+│ └── server.js <br>
+<br>
 ---
 
 ## 📦 Features
@@ -68,8 +68,8 @@ Foodie_Project/
    
 4. Backend Setup
 
-   cd backend
-   npm install
+   cd backend<br>
+   npm install<br>
    npm start
 
 
